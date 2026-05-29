@@ -11,10 +11,14 @@
   Here x is a D*pop_size matrix.
 */
 
-// #include <WINDOWS.H>      
+// #include <WINDOWS.H>    
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <stdio.h>
 #include <math.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <mex.h>
 
 double *OShift,*M,*y,*z,*x_bound;

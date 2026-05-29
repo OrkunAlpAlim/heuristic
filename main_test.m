@@ -1,5 +1,6 @@
 clear; clc; close all;
 addpath('algorithm');
+addpath('proposed');
 addpath('problem/CEC2014');
 addpath('problem/CEC2017');
 addpath('problem/CEC2020');
@@ -10,7 +11,7 @@ addpath('problem/CEC2022');
 fprintf('=== Quick Algorithm Integration Test ===\n\n');
 
 % Test configuration - minimal settings for quick validation
-algorithms = {'lshade_spacma'};  % Test Weighted Differential Evolution algorithm
+algorithms = {'fdb_se', 'se'};  % Test Weighted Differential Evolution algorithm
 % Her CEC benchmark'ından 3 problem: CEC2014, CEC2017, CEC2020, CEC2020RW, CEC2021, CEC2022
 % test_experiments = {'cec2014_10', 'cec2017_10', 'cec2020_10', 'cec2020rw', 'cec2021_10', 'cec2022_10'};
 test_experiments = {'cec2020rw'};

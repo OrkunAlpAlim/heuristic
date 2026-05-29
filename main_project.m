@@ -5,7 +5,7 @@ addpath('problem/CEC2021');
 addpath('problem/CEC2022');
 
 % Algorithm configuration
-algorithms = {'ea4eig', 'fdb_ea4eig'};
+algorithms = {'fdb_se', 'se'};
 
 % CPU çekirdek sayısını tespit et
 num_cores = feature('numcores');

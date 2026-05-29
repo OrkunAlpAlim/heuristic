@@ -8,19 +8,19 @@
   f = cec14_func(x,func_num); 
   Here x is a D*pop_size matrix.
 */
-#include <WINDOWS.H>      
+
+// #include <WINDOWS.H>      
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <stdio.h>
 #include <math.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <mex.h>
 
 double *OShift,*M,*y,*z,*x_bound;
 int ini_flag=0,n_flag,func_flag,*SS;
-
-#include <WINDOWS.H>      
-#include <stdio.h>
-#include <math.h>
-#include <malloc.h>
 
 #define INF 1.0e99
 #define EPS 1.0e-14

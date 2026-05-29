@@ -1,5 +1,20 @@
 clear; clc; close all;
+
+projectRoot = '/Users/orkunalpalim/Documents/Projects/GitHub/heuristic';
+cd(projectRoot)
+
+restoredefaultpath
+addpath(genpath(projectRoot))
+rehash toolboxcache
+
+fprintf('\nMain MATLAB path check:\n');
+which fdb_se -all
+which se -all
+which calculate_fitness -all
+
 addpath('algorithm');
+addpath('proposed');
+
 addpath('problem/CEC2014');
 addpath('problem/CEC2017');
 addpath('problem/CEC2020');
@@ -8,14 +23,14 @@ addpath('problem/CEC2021');
 addpath('problem/CEC2022');
 
 % Algorithm configuration
-algorithms = {'sos'};
+algorithms = {'fdb_se', 'se'};
 
 % CPU çekirdek sayısını tespit et
 num_cores = feature('numcores');
 fprintf('Detected %d CPU cores\n', num_cores);
 
 % Optimal worker sayısı
-optimal_workers = max(4, num_cores);
+optimal_workers = min(8, max(4, num_cores - 2));
 fprintf('Using %d parallel workers\n', optimal_workers);
 
 % Parallel pool başlat
@@ -32,6 +47,17 @@ else
         fprintf('Parallel pool already running with %d workers (optimal)\n', poolobj.NumWorkers);
     end
 end
+
+% Ensure parallel workers can see the full project path
+pctRunOnAll restoredefaultpath
+pctRunOnAll addpath(genpath('/Users/orkunalpalim/Documents/Projects/GitHub/heuristic'))
+pctRunOnAll rehash toolboxcache
+pctRunOnAll clear functions
+
+fprintf('\nWorker path check:\n');
+pctRunOnAll which calculate_fitness -all
+pctRunOnAll which fdb_se -all
+pctRunOnAll which se -all
 
 % List of all available experiments
 all_experiments = {

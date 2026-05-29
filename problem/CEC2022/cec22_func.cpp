@@ -12,7 +12,7 @@
 // #include <WINDOWS.H>
 #include <stdio.h>
 #include <math.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <mex.h>
 
 double *OShift,*M,*y,*z,*x_bound;

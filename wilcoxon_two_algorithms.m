@@ -20,7 +20,7 @@ if isempty(project_root)
 end
 
 % ------------------------- Configuration -------------------------
-algorithms   = {'fdb_ea4eig', 'ea4eig'}; % {A, B}: comparison direction is proposed vs baseline
+algorithms   = {'fdb_se', 'se'}; % {A, B}: comparison direction is proposed vs baseline
 base_dir     = 'results';          % root folder of saved runs
 alpha        = 0.05;               % significance level
 score_plus   = 5;                  % project score weight for '+' wins
